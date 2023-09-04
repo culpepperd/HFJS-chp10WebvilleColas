@@ -8,6 +8,34 @@ var products = [ { name: "Grapefruit", calories: 170, color: "red", sold: 8200 }
                  { name: "Water", calories: 0, color: "clear", sold: 62123 }
                ];
 
+// LONG comparison function
+// realize that in this case, we are passing objects as arguments,
+// therefore we need to access the object parameters
+function compareSold1(colaA, colaB) {
+    if ( colaA.sold > colaB.sold ) {
+        return 1;
+    } else if ( colaA.sold === colaB.sold ) {
+        return 0;
+    } else {
+        return -1;
+    }
+}
+
+// CONCISE comparison function
+// This works because we only need to return a number
+// greater than zero, less than zero, or zero itself
+function compareSold2(colaA, colaB) {
+    return colaA.sold - colaB.sold;
+}
+
+products.sort(compareSold2);
+console.log(products);
+
+
+
+
+
+
 /*
 var printAllColas = function (products) {
     for ( var i = 0; i < products.length; i++ ) {
