@@ -28,8 +28,18 @@ function compareSold2(colaA, colaB) {
     return colaA.sold - colaB.sold;
 }
 
+function printProducts(products) {
+    for ( var i = 0; i < products.length; i++ ) {
+        console.log( "Name: " + products[i].name + 
+                     ", Calories: " + products[i].calories + 
+                     ", Color: " + products[i].color + 
+                     ", Sold: " + products[i].sold);
+    }
+}
+
 products.sort(compareSold2);
-console.log(products);
+printProducts(products);
+// console.log(products);
 
 
 
