@@ -28,16 +28,47 @@ function compareSold2(colaA, colaB) {
     return colaA.sold - colaB.sold;
 }
 
-function printProducts(products) {
-    for ( var i = 0; i < products.length; i++ ) {
-        console.log( "Name: " + products[i].name + 
-                     ", Calories: " + products[i].calories + 
-                     ", Color: " + products[i].color + 
-                     ", Sold: " + products[i].sold);
+function compareName(colaA, colaB) {
+    if ( colaA.name > colaB.name ) {
+        return 1;
+    } else if ( colaA.name === colaB.name ) {
+        return 0;
+    } else {
+        return -1;
     }
 }
 
-products.sort(compareSold2);
+function compareCalories(colaA, colaB) {
+    return colaA.calories - colaB.calories;
+}
+
+function compareColor(colaA, colaB) {
+    if ( colaA.color > colaB.color ) {
+        return 1;
+    } else if ( colaA.color === colaB.color ) {
+        return 0;
+    } else {
+        return -1;
+    }
+}
+
+function printProducts(products) {
+    for ( var i = 0; i < products.length; i++ ) {
+        printFormat(products, i);
+    }
+}
+
+function printFormat(products, i) {
+    console.log( "Name: " + products[i].name + 
+                     ", Calories: " + products[i].calories + 
+                     ", Color: " + products[i].color + 
+                     ", Sold: " + products[i].sold);
+}
+
+products.sort(compareName);
+//products.sort(compareCalories);
+//products.sort(compareColor);
+//products.sort(compareSold2);
 printProducts(products);
 // console.log(products);
 
